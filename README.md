@@ -1,5 +1,5 @@
-This is my README file
+Campfire Coffee
 
-There are many like it, but this one is mine.
-
-Quackety quack, don't come back!
+*Version 1.0
+- Created Object Literals and methods for each location
+- Provides metrics at each location on the data.html page
