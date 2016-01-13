@@ -1,5 +1,5 @@
 //Hours as an array
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 
 //Locations
 var pikePlace = {
@@ -56,9 +56,27 @@ var pikePlace = {
       this.toGoLbs();
       this.totalLbsSold();
 
+    //create a loop to print the hours in a list
+      var ulEl = document.createElement('ul');
+      for(var i = 0; i < hours.length; i++) {
+        var liEl = document.createElement('li');
+        //6:00am: 86.5 lbs [23 customers, 27.6 cups (1.4 lbs), 85.1 lbs to-go]
+        liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i] + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray + ' cups (' + cupsToLbsArray + ' lbs), ' + toGoLbsArray + ' lbs to-go';
+        ulEl.appendChild(liEl);
+      }
+      // var ulEl = document.createElement('ul');
+      // for (var i = 0; i < this.custPerHourGenerateArray.length; i++) {
+      //   var liEl = document.createElement('li');
+      //   liEl.textContent = (6+i) + ':00: ' + this.totalBeansSoldArray[i] + ' lbs, [' + this.custPerHourGenerateArray[i] + ' customers, ' + this.numberCupsSoldArray[i] + ' cups (' + this.cupsToLbsArray[i] + ' lbs), ' + this.lbsToGoSoldArray[i] + ' lbs to-go]';
+      //   ulEl.appendChild(liEl);
+      // }
+
+      //document.body.appendChild(ulEl);
+    }
+  };
+  pike.rendering();
 
     }
-
 
 };
 //console.log(pikePlace.custPerHrArray); //This array will not have anything in it because we didn't call the custPerHr method to populate the array.
