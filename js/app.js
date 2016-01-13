@@ -3,6 +3,7 @@ var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:0
 
 //Locations
 var pikePlace = {
+  name: 'Pike Place Market',
   minCustPerHr: 14,
   maxCustPerHr: 55,
   cupsPerCust: 1.2,
@@ -56,54 +57,22 @@ var pikePlace = {
       this.toGoLbs();
       this.totalLbsSold();
 
-    //create a loop to print the hours in a list
+
       var ulEl = document.createElement('ul');
+      ulEl.appendChild(document.createTextNode(this.name));
       for(var i = 0; i < hours.length; i++) {
         var liEl = document.createElement('li');
         //6:00am: 86.5 lbs [23 customers, 27.6 cups (1.4 lbs), 85.1 lbs to-go]
-        liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i] + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray + ' cups (' + cupsToLbsArray + ' lbs), ' + toGoLbsArray + ' lbs to-go';
+        liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
         ulEl.appendChild(liEl);
       }
-      // var ulEl = document.createElement('ul');
-      // for (var i = 0; i < this.custPerHourGenerateArray.length; i++) {
-      //   var liEl = document.createElement('li');
-      //   liEl.textContent = (6+i) + ':00: ' + this.totalBeansSoldArray[i] + ' lbs, [' + this.custPerHourGenerateArray[i] + ' customers, ' + this.numberCupsSoldArray[i] + ' cups (' + this.cupsToLbsArray[i] + ' lbs), ' + this.lbsToGoSoldArray[i] + ' lbs to-go]';
-      //   ulEl.appendChild(liEl);
-      // }
-
-      //document.body.appendChild(ulEl);
+      document.body.appendChild(ulEl); //This takes the <ul> element and puts it in the body as child element
     }
   };
-  pike.rendering();
-
-    }
-
-};
-//console.log(pikePlace.custPerHrArray); //This array will not have anything in it because we didn't call the custPerHr method to populate the array.
-// pikePlace.custPerHr();
-//console.log(pikePlace.custPerHrArray); //This array will have something in it because the custPerHr method was called and put elements in the array.
-
-
-
-
-//   hourlyCustomers: function(minCustPerHr, maxCustPerHr) {
-//     return Math.floor(Math.random() * this.maxCustPerHr - this.minCustPerHr + 1) + minCustPerHr;
-//   },
-//   totalCups: function(hourlyCustomers, cupsPerCust) {
-//     return this.hourlyCustomers * this.cupsPerCust;
-//   },
-//   totalLbsFromCups: function(totalCups) {
-//     return this.totalCups / 20;
-//   },
-//   totalTogoLbs: function(hourlyCustomers, lbsPerCust) {
-//     return this.hourlyCustomers * this.lbsPerCust;
-//   },
-//   totalLbs: function(totalLbsFromCups, totalTogoLbs) {
-//     this.totalLbsFromCups + this.totalTogoLbs;
-//   }
-// };
+ pikePlace.render();
 
 // var capitolHill = {
+//   name: 'Capitol Hill',
 //   minCustPerHr: 32,
 //   maxCustPerHr: 48,
 //   cupsPerCust: 3.2,
@@ -138,6 +107,7 @@ var pikePlace = {
 // };
 
 // var seaPubLib = {
+//   name: 'Seattle Public Library',
 //   minCustPerHr: 49,
 //   maxCustPerHr: 75,
 //   cupsPerCust:  2.6,
@@ -160,6 +130,7 @@ var pikePlace = {
 // };
 //
 // var sLakeUnion = {
+//   name: 'South Lake Union',
 //   minCustPerHr: 35,
 //   maxCustPerHr: 88,
 //   cupsPerCust: 1.3,
@@ -182,6 +153,7 @@ var pikePlace = {
 // };
 //
 // var seaTacAirport = {
+//   name: 'Sea-Tac Airport',
 //   minCustPerHr: 68,
 //   maxCustPerHr: 124,
 //   cupsPerCust: 1.1,
@@ -204,6 +176,7 @@ var pikePlace = {
 // };
 //
 // var websiteSales = {
+//   name: 'Website Sales',
 //   minCustPerHr: 3,
 //   maxCustPerHr: 6,
 //   cupsPerCust: 0,
