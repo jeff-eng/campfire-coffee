@@ -12,7 +12,8 @@ var pikePlace = {
   numCupsSoldArray: [],
   cupsToLbsArray: [],
   toGoLbsArray: [],
-  totalLbsSoldArray: [],
+  totalLbsSoldPerHrArray: [],
+  totalDailyLbs: 0,
 
     custPerHr: function() {
       for (var i = 0; i < hours.length; i++) {
@@ -42,11 +43,18 @@ var pikePlace = {
       console.log(this.toGoLbsArray);
     },
 
-    totalLbsSold: function() {
+    totalLbsSoldPerHr: function() {
       for (var i = 0; i < hours.length; i++) {
-        this.totalLbsSoldArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
+        this.totalLbsSoldPerHrArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
       }
-      console.log(this.totalLbsSoldArray);
+      console.log(this.totalLbsSoldPerHrArray);
+    },
+
+    totalDailyLbsMethod: function() {
+      for (var i = 0; i < hours.length; i++) {
+         this.totalDailyLbs += this.totalLbsSoldPerHrArray[i];
+      }
+      return this.totalDailyLbs;
     },
 
     // this calls the methods for this object and populates the arrays
@@ -55,21 +63,24 @@ var pikePlace = {
       this.numCupsSold();
       this.cupsToLbs();
       this.toGoLbs();
-      this.totalLbsSold();
-
+      this.totalLbsSoldPerHr();
+      this.totalDailyLbsMethod();
 
       var ulEl = document.createElement('ul');
       ulEl.appendChild(document.createTextNode(this.name));
       for(var i = 0; i < hours.length; i++) {
         var liEl = document.createElement('li');
         //6:00am: 86.5 lbs [23 customers, 27.6 cups (1.4 lbs), 85.1 lbs to-go]
-        liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
+        liEl.textContent = hours[i] + ': ' + this.totalLbsSoldPerHrArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
         ulEl.appendChild(liEl);
       }
       document.body.appendChild(ulEl); //This takes the <ul> element and puts it in the body as child element
+      liEl = document.createElement('li');
+      liEl.textContent = 'TOTAL Daily Pounds At ' + this.name + ': ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+      ulEl.appendChild(liEl);
     }
   };
- pikePlace.render();
+ pikePlace.render(); //calls the render method for Pike Place Market and displays data on data.html page
 
 //Capitol Hill Location Object and its methods
 var capitolHill = {
@@ -82,14 +93,15 @@ var capitolHill = {
   numCupsSoldArray: [],
   cupsToLbsArray: [],
   toGoLbsArray: [],
-  totalLbsSoldArray: [],
+  totalLbsSoldPerHrArray: [],
+  totalDailyLbs: 0,
 
   custPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
       this.customerPerHrArray.push(Math.floor(Math.random() * (this.maxCustPerHr - this.minCustPerHr + 1) + this.minCustPerHr));
     }
    console.log(this.customerPerHrArray);
-  },
+ },
 
   numCupsSold: function() {
     for (var i = 0; i < hours.length; i++) {
@@ -112,11 +124,18 @@ var capitolHill = {
     console.log(this.toGoLbsArray);
   },
 
-  totalLbsSold: function() {
+  totalLbsSoldPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
-      this.totalLbsSoldArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
+      this.totalLbsSoldPerHrArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
     }
-    console.log(this.totalLbsSoldArray);
+    console.log(this.totalLbsSoldPerHrArray);
+  },
+
+  totalDailyLbsMethod: function() {
+    for (var i = 0; i < hours.length; i++) {
+       this.totalDailyLbs += this.totalLbsSoldPerHrArray[i];
+    }
+    return this.totalDailyLbs;
   },
 
   // this calls the methods for this object and populates the arrays
@@ -125,21 +144,24 @@ var capitolHill = {
     this.numCupsSold();
     this.cupsToLbs();
     this.toGoLbs();
-    this.totalLbsSold();
-
+    this.totalLbsSoldPerHr();
+    this.totalDailyLbsMethod();
 
     var ulEl = document.createElement('ul');
     ulEl.appendChild(document.createTextNode(this.name));
     for(var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
       //6:00am: 86.5 lbs [23 customers, 27.6 cups (1.4 lbs), 85.1 lbs to-go]
-      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
+      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldPerHrArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl); //This takes the <ul> element and puts it in the body as child element
+    liEl = document.createElement('li');
+    liEl.textContent = 'TOTAL Daily Pounds At ' + this.name + ': ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(liEl);
   }
 };
-capitolHill.render();
+capitolHill.render(); //calls the render method for Capitol Hill and displays data on data.html page
 
 //Seattle Public Library Object and its methods
 var seaPubLib = {
@@ -152,14 +174,15 @@ var seaPubLib = {
   numCupsSoldArray: [],
   cupsToLbsArray: [],
   toGoLbsArray: [],
-  totalLbsSoldArray: [],
+  totalLbsSoldPerHrArray: [],
+  totalDailyLbs: 0,
 
   custPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
       this.customerPerHrArray.push(Math.floor(Math.random() * (this.maxCustPerHr - this.minCustPerHr + 1) + this.minCustPerHr));
     }
    console.log(this.customerPerHrArray);
-  },
+ },
 
   numCupsSold: function() {
     for (var i = 0; i < hours.length; i++) {
@@ -182,11 +205,18 @@ var seaPubLib = {
     console.log(this.toGoLbsArray);
   },
 
-  totalLbsSold: function() {
+  totalLbsSoldPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
-      this.totalLbsSoldArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
+      this.totalLbsSoldPerHrArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
     }
-    console.log(this.totalLbsSoldArray);
+    console.log(this.totalLbsSoldPerHrArray);
+  },
+
+  totalDailyLbsMethod: function() {
+    for (var i = 0; i < hours.length; i++) {
+       this.totalDailyLbs += this.totalLbsSoldPerHrArray[i];
+    }
+    return this.totalDailyLbs;
   },
 
   // this calls the methods for this object and populates the arrays
@@ -195,21 +225,24 @@ var seaPubLib = {
     this.numCupsSold();
     this.cupsToLbs();
     this.toGoLbs();
-    this.totalLbsSold();
-
+    this.totalLbsSoldPerHr();
+    this.totalDailyLbsMethod();
 
     var ulEl = document.createElement('ul');
     ulEl.appendChild(document.createTextNode(this.name));
     for(var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
       //6:00am: 86.5 lbs [23 customers, 27.6 cups (1.4 lbs), 85.1 lbs to-go]
-      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
+      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldPerHrArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl); //This takes the <ul> element and puts it in the body as child element
+    liEl = document.createElement('li');
+    liEl.textContent = 'TOTAL Daily Pounds At ' + this.name + ': ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(liEl);
   }
 };
-seaPubLib.render();
+seaPubLib.render(); //calls the render method for Seattle Public Library and displays data on data.html page
 
 // South Lake Union object and its methods
 var sLakeUnion = {
@@ -222,14 +255,15 @@ var sLakeUnion = {
   numCupsSoldArray: [],
   cupsToLbsArray: [],
   toGoLbsArray: [],
-  totalLbsSoldArray: [],
+  totalLbsSoldPerHrArray: [],
+  totalDailyLbs: 0,
 
   custPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
       this.customerPerHrArray.push(Math.floor(Math.random() * (this.maxCustPerHr - this.minCustPerHr + 1) + this.minCustPerHr));
     }
    console.log(this.customerPerHrArray);
-  },
+ },
 
   numCupsSold: function() {
     for (var i = 0; i < hours.length; i++) {
@@ -252,11 +286,18 @@ var sLakeUnion = {
     console.log(this.toGoLbsArray);
   },
 
-  totalLbsSold: function() {
+  totalLbsSoldPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
-      this.totalLbsSoldArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
+      this.totalLbsSoldPerHrArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
     }
-    console.log(this.totalLbsSoldArray);
+    console.log(this.totalLbsSoldPerHrArray);
+  },
+
+  totalDailyLbsMethod: function() {
+    for (var i = 0; i < hours.length; i++) {
+       this.totalDailyLbs += this.totalLbsSoldPerHrArray[i];
+    }
+    return this.totalDailyLbs;
   },
 
   // this calls the methods for this object and populates the arrays
@@ -265,22 +306,26 @@ var sLakeUnion = {
     this.numCupsSold();
     this.cupsToLbs();
     this.toGoLbs();
-    this.totalLbsSold();
-
+    this.totalLbsSoldPerHr();
+    this.totalDailyLbsMethod();
 
     var ulEl = document.createElement('ul');
     ulEl.appendChild(document.createTextNode(this.name));
     for(var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
       //6:00am: 86.5 lbs [23 customers, 27.6 cups (1.4 lbs), 85.1 lbs to-go]
-      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
+      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldPerHrArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl); //This takes the <ul> element and puts it in the body as child element
+    liEl = document.createElement('li');
+    liEl.textContent = 'TOTAL Daily Pounds At ' + this.name + ': ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(liEl);
   }
 };
-sLakeUnion.render();
-//
+
+sLakeUnion.render(); //calls the render method for Sea-Tac Airport and displays data on data.html page
+
 //Sea-Tac Airport object and its methods
 var seaTacAirport = {
   name: 'Sea-Tac Airport',
@@ -292,14 +337,15 @@ var seaTacAirport = {
   numCupsSoldArray: [],
   cupsToLbsArray: [],
   toGoLbsArray: [],
-  totalLbsSoldArray: [],
+  totalLbsSoldPerHrArray: [],
+  totalDailyLbs: 0,
 
   custPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
       this.customerPerHrArray.push(Math.floor(Math.random() * (this.maxCustPerHr - this.minCustPerHr + 1) + this.minCustPerHr));
     }
    console.log(this.customerPerHrArray);
-  },
+ },
 
   numCupsSold: function() {
     for (var i = 0; i < hours.length; i++) {
@@ -322,11 +368,18 @@ var seaTacAirport = {
     console.log(this.toGoLbsArray);
   },
 
-  totalLbsSold: function() {
+  totalLbsSoldPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
-      this.totalLbsSoldArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
+      this.totalLbsSoldPerHrArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
     }
-    console.log(this.totalLbsSoldArray);
+    console.log(this.totalLbsSoldPerHrArray);
+  },
+
+  totalDailyLbsMethod: function() {
+    for (var i = 0; i < hours.length; i++) {
+       this.totalDailyLbs += this.totalLbsSoldPerHrArray[i];
+    }
+    return this.totalDailyLbs;
   },
 
   // this calls the methods for this object and populates the arrays
@@ -335,22 +388,26 @@ var seaTacAirport = {
     this.numCupsSold();
     this.cupsToLbs();
     this.toGoLbs();
-    this.totalLbsSold();
-
+    this.totalLbsSoldPerHr();
+    this.totalDailyLbsMethod();
 
     var ulEl = document.createElement('ul');
     ulEl.appendChild(document.createTextNode(this.name));
     for(var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
       //6:00am: 86.5 lbs [23 customers, 27.6 cups (1.4 lbs), 85.1 lbs to-go]
-      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
+      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldPerHrArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl); //This takes the <ul> element and puts it in the body as child element
+    liEl = document.createElement('li');
+    liEl.textContent = 'TOTAL Daily Pounds At ' + this.name + ': ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(liEl);
   }
 };
-seaTacAirport.render();
-//
+
+seaTacAirport.render(); //calls the render method for Sea-Tac Airport and displays data on data.html page
+
 //Website Sales object and its methods
 var websiteSales = {
   name: 'Website Sales',
@@ -362,14 +419,15 @@ var websiteSales = {
   numCupsSoldArray: [],
   cupsToLbsArray: [],
   toGoLbsArray: [],
-  totalLbsSoldArray: [],
+  totalLbsSoldPerHrArray: [],
+  totalDailyLbs: 0,
 
   custPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
       this.customerPerHrArray.push(Math.floor(Math.random() * (this.maxCustPerHr - this.minCustPerHr + 1) + this.minCustPerHr));
     }
    console.log(this.customerPerHrArray);
-  },
+ },
 
   numCupsSold: function() {
     for (var i = 0; i < hours.length; i++) {
@@ -392,11 +450,18 @@ var websiteSales = {
     console.log(this.toGoLbsArray);
   },
 
-  totalLbsSold: function() {
+  totalLbsSoldPerHr: function() {
     for (var i = 0; i < hours.length; i++) {
-      this.totalLbsSoldArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
+      this.totalLbsSoldPerHrArray.push(this.cupsToLbsArray[i] + this.toGoLbsArray[i]);
     }
-    console.log(this.totalLbsSoldArray);
+    console.log(this.totalLbsSoldPerHrArray);
+  },
+
+  totalDailyLbsMethod: function() {
+    for (var i = 0; i < hours.length; i++) {
+       this.totalDailyLbs += this.totalLbsSoldPerHrArray[i];
+    }
+    return this.totalDailyLbs;
   },
 
   // this calls the methods for this object and populates the arrays
@@ -405,18 +470,22 @@ var websiteSales = {
     this.numCupsSold();
     this.cupsToLbs();
     this.toGoLbs();
-    this.totalLbsSold();
-
+    this.totalLbsSoldPerHr();
+    this.totalDailyLbsMethod();
 
     var ulEl = document.createElement('ul');
     ulEl.appendChild(document.createTextNode(this.name));
     for(var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
       //6:00am: 86.5 lbs [23 customers, 27.6 cups (1.4 lbs), 85.1 lbs to-go]
-      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
+      liEl.textContent = hours[i] + ': ' + this.totalLbsSoldPerHrArray[i].toFixed(1) + ' lbs [' + this.customerPerHrArray[i] + ' customers, ' + this.numCupsSoldArray[i].toFixed(1) + ' cups (' + this.cupsToLbsArray[i].toFixed(1) + ' lbs), ' + this.toGoLbsArray[i].toFixed(1) + ' lbs to-go]';
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl); //This takes the <ul> element and puts it in the body as child element
+    liEl = document.createElement('li');
+    liEl.textContent = 'TOTAL Daily Pounds At ' + this.name + ': ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(liEl);
   }
 };
+
 websiteSales.render();
