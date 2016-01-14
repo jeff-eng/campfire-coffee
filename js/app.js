@@ -52,7 +52,7 @@ Kiosk.prototype.totalLbsSoldPerHr = function() {
       }
       console.log(this.totalLbsSoldPerHrArray);
     }
-//**totalDailyLbs Method
+//**totalDailyLbs (for each location) Method**
 Kiosk.prototype.totalDailyLbs = function() {
       for (var i = 0; i < hours.length; i++) {
          this.totalDailyLbs += this.totalLbsSoldPerHrArray[i];
