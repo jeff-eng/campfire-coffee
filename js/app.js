@@ -53,11 +53,10 @@ Kiosk.prototype.totalLbsSoldPerHr = function() {
       console.log(this.totalLbsSoldPerHrArray);
     }
 //**totalDailyLbs (for each location) Method**
-Kiosk.prototype.totalDailyLbs = function() {
+Kiosk.prototype.totalDailyLbsMethod = function() {
       for (var i = 0; i < hours.length; i++) {
          this.totalDailyLbs += this.totalLbsSoldPerHrArray[i];
       }
-      return this.totalDailyLbs;
 }
 //**render Method**
 Kiosk.prototype.render = function() {
@@ -90,6 +89,8 @@ var sLakeUnion = new Kiosk('South Lake Union', 35, 88, 1.3, 3.7);
 var seaTacAirport = new Kiosk('Sea-Tac Airport', 68, 124, 1.1, 2.7);
 var websiteSales= new Kiosk('Website Sales', 3, 6, 0, 6.7);
 
+//
+pikePlace.render();
 // var aggregateKioskSales = 0;
 //
 // var kiosks = [this.pikePlace, this.capitolHill, this.seaPubLib, this.sLakeUnion, this.seaTacAirport, this.websiteSales];
@@ -185,7 +186,7 @@ var websiteSales= new Kiosk('Website Sales', 3, 6, 0, 6.7);
 //   };
 //  pikePlace.render(); //calls the render method for Pike Place Market and displays data on data.html page
 
-//Capitol Hill Location Object and its methods
+// Capitol Hill Location Object and its methods
 // var capitolHill = {
 //   name: 'Capitol Hill',
 //   minCustPerHr: 32,
@@ -592,5 +593,3 @@ var websiteSales= new Kiosk('Website Sales', 3, 6, 0, 6.7);
 // };
 //
 // websiteSales.render();
-//
-//compiling aggregate total daily pounds
