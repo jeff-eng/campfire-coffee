@@ -489,3 +489,15 @@ var websiteSales = {
 };
 
 websiteSales.render();
+
+//compiling aggregate total daily pounds
+var aggregateKioskSales = 0;
+
+var kiosks = [pikePlace, capitolHill, seaPubLib, sLakeUnion, seaTacAirport, websiteSales];
+for (var i = 0; i < kiosks.length; i++) {
+  kiosks[i].render();
+  aggregateKioskSales += kiosks[i].totalDailyLbs;
+}
+var h1El = document.createElement('h1');
+h1El.textContent = 'Total daily pounds of coffee for all locations is: ' + aggregateKioskSales.toFixed(1) + ' lbs.';
+document.body.appendChild(h1El);
