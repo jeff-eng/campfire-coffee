@@ -97,13 +97,34 @@ sLakeUnion.render();
 seaTacAirport.render();
 websiteSales.render();
 
-// var aggregateKioskSales = 0;
-//
-// var kiosks = [this.pikePlace, this.capitolHill, this.seaPubLib, this.sLakeUnion, this.seaTacAirport, this.websiteSales];
-// for (var i = 0; i < kiosks.length; i++) {
-//   kiosks[i].prototype.render();
-//   aggregateKioskSales += kiosks[i].totalDailyLbs;
-// }
-// var h1El = document.createElement('h1');
-// h1El.textContent = 'Total daily pounds of coffee for all locations is: ' + aggregateKioskSales.toFixed(1) + ' lbs.';
-// document.body.appendChild(h1El);
+function render() {
+  var tableEl = document.createElement('table'); //Create table
+  tableEl.appendChild(tableEl);  //Append table
+
+}
+
+
+//Use a for loop to go through hours array
+var tableEl = document.createElement('table'); //Creates table element
+document.appendChild
+var trEl = document.createElement('tr');        //Creates table row
+for(var i = 0; i < hours.length; i++) {        //Loop to create table headings
+  var thEl = document.createElement('th');     //Creates table heading element
+  thEl.createTextNode = hours[i];
+}
+document.body.appendChild(tableEl); //This
+
+//thEl.appendChild(document.createTextNode(this.hours))
+
+
+//Aggregate Kiosk Sales
+var aggregateKioskSales = 0; //Initialize to zero
+
+var kiosks = [this.pikePlace, this.capitolHill, this.seaPubLib, this.sLakeUnion, this.seaTacAirport, this.websiteSales]; //Array of kiosk objects
+for (var i = 0; i < kiosks.length; i++) {
+  kiosks[i].render();
+  aggregateKioskSales += kiosks[i].totalDailyLbs;
+}
+var h1El = document.createElement('h1');
+h1El.textContent = 'Total daily pounds of coffee for all locations is: ' + aggregateKioskSales.toFixed(1) + ' lbs.';
+document.body.appendChild(h1El);
