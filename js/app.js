@@ -89,33 +89,29 @@ var sLakeUnion = new Kiosk('South Lake Union', 35, 88, 1.3, 3.7);
 var seaTacAirport = new Kiosk('Sea-Tac Airport', 68, 124, 1.1, 2.7);
 var websiteSales= new Kiosk('Website Sales', 3, 6, 0, 6.7);
 
-//
-pikePlace.render();
-capitolHill.render();
-seaPubLib.render();
-sLakeUnion.render();
-seaTacAirport.render();
-websiteSales.render();
+//Create function to render data into table format
+function renderTable() {
+  var tableEl = document.createElement('table'); //Create table element
+  document.body.appendChild(tableEl);  //Append table element to DOM
+  var trEl = document.createElement('tr'); //Create table row element
+  tableEl.appendChild(trEl);  //Append table row element to table element
+  for(i = 0; i < hours.length; i++) {
+    var thEl = document.createElement('th'); //Create table heading
+    trEl.appendChild(thEl);      //Append table heading to DOM
+    thEl.textContent = hours[i];  //Give the table heading text content
 
-function render() {
-  var tableEl = document.createElement('table'); //Create table
-  tableEl.appendChild(tableEl);  //Append table
-
+  }
 }
+renderTable();
 
-
-//Use a for loop to go through hours array
-var tableEl = document.createElement('table'); //Creates table element
-document.appendChild
-var trEl = document.createElement('tr');        //Creates table row
-for(var i = 0; i < hours.length; i++) {        //Loop to create table headings
-  var thEl = document.createElement('th');     //Creates table heading element
-  thEl.createTextNode = hours[i];
+//sample function from w3schools to use as a template
+function myFunction() {
+    var x = document.createElement("P");
+    var t = document.createTextNode("This is a paragraph.");
+    x.appendChild(t);
+    document.body.appendChild(x);
 }
-document.body.appendChild(tableEl); //This
-
-//thEl.appendChild(document.createTextNode(this.hours))
-
+myFunction();
 
 //Aggregate Kiosk Sales
 var aggregateKioskSales = 0; //Initialize to zero
