@@ -11,3 +11,7 @@ Campfire Coffee
 - Driver: Katherine Beame
 - Navigator: Jeffrey Eng
 - Added: A form to the data.html page
+
+*Version 1.2
+- Added table data for each location broken into individual hours
+- Added form and event handler to add new location

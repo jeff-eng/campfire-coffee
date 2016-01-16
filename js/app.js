@@ -2,7 +2,7 @@ var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:0
 
 var locations = ['Pike Place Market', 'Capitol Hill', 'Seattle Public Library', 'South Lake Union', 'Sea-Tac Airport', 'Website Sales'];
 
-//Kiosk Constructor function
+//Kiosk Object Constructor function
 function Kiosk(name, minCustPerHr, maxCustPerHr, cupsPerCust, lbsPerCust) {
   this.name = name;
   this.minCustPerHr = minCustPerHr;
@@ -17,8 +17,7 @@ function Kiosk(name, minCustPerHr, maxCustPerHr, cupsPerCust, lbsPerCust) {
   this.totalDailyLbs = 0;
 };
 
-//Add methods to constructor function
-//**custPerHr Method**
+//Method to populate the arrays
 Kiosk.prototype.populateArrays = function() {
 
         for (var i = 0; i < hours.length; i++) {
@@ -84,7 +83,7 @@ function renderTable(location) {
     for(var i = 0; i < location.customerPerHrArray.length; i++) {  //Loop to create table headings for the hours
 
       var tdEl = document.createElement('td');
-      tdEl.textContent = Math.ceil(location.numCupsSoldArray[i]) + '(' + location.cupsToLbsArray[i].toFixed(1) + ')';
+      tdEl.textContent = Math.ceil(location.numCupsSoldArray[i]) + ' (' + location.cupsToLbsArray[i].toFixed(1) + ')';
       newTr.appendChild(tdEl);
     }
 //***************
@@ -122,7 +121,7 @@ function renderTable(location) {
 
     var tdEl = document.createElement('td');
     newTr.appendChild(tdEl);
-    tdEl.textContent = this.totalDailyLbs;
+    tdEl.textContent = location.totalDailyLbs.toFixed(2);
 
     var brEl = document.createElement('br');  //Create line break
     document.body.appendChild(brEl);
@@ -130,13 +129,9 @@ function renderTable(location) {
 }
 var allKiosks = [pikePlace, capitolHill, seaPubLib, sLakeUnion, seaTacAirport, websiteSales];
 
-function renderTables() {
-  for (var i=0; i<allKiosks.length; i++){
+  for (var i = 0; i < allKiosks.length; i++){
     renderTable(allKiosks[i]);
   }
-}
-
-renderTables();
 
 var newKiosk = document.getElementById('newKiosk');
 newKiosk.addEventListener('submit', addNewKiosk);
