@@ -18,4 +18,4 @@ Campfire Coffee
 
 *Version 1.3
 - Used Skeleton CSS boilerplate to add in CSS (credit to getskeleton.com)
-- Ipsum sources: http://coffeeipsum.com/, 
+- Ipsum sources: http://coffeeipsum.com/,
