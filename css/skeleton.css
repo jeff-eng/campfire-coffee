@@ -126,8 +126,11 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  /*font-family: 'Questrial', sans-serif;*/
+  /*font-family: 'Cutive', serif;*/
+  /*font-family: 'Gloria Hallelujah', cursive;*/
+  font-family: 'Architects Daughter', cursive;
+  background-image:image(img/campfire-coffee.jpg); }
 
 
 /* Typography
@@ -160,9 +163,12 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: #A7A9B3;
+  text-decoration: none;
+}
 a:hover {
-  color: #0FA0CE; }
+  color: #E8E8E8;
+}
 
 
 /* Buttons
@@ -326,7 +332,7 @@ pre > code {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 th,
 td {
-  padding: 12px 15px;
+  padding: 7px 10px;
   text-align: left;
   border-bottom: 1px solid #E1E1E1; }
 th:first-child,
@@ -393,6 +399,13 @@ hr {
   display: table;
   clear: both; }
 
+/* Navigation
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+nav ul li{
+  display: inline-flex;
+  padding: 15px;
+  position: relative;
+}
 
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -421,9 +434,15 @@ there.
 
 
 body {
-  background-color: #607A31;
+  /*background-color: #607A31;*/
+  background-image: image(img/campfire.jpg);
 }
 
 table, th, td {
   border: 1px solid black;
+}
+
+.campfire-coffee {
+  width: 150px;
+  height: auto;
 }
