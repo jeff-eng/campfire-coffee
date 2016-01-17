@@ -1,8 +1,12 @@
 <html>
   <head>
-    <title>Campfire Coffee Kiosks Data</title>
+    <title>Campfire Coffee Metrics</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
+    <header>
+      <h1>Campfire Coffee</h1>
+      <h2>From the tent to the fire, it's our coffee you desire</h2>
     <form id="newKiosk">
       <fieldset>
         <legend>New Store Data Entry</legend>
@@ -10,19 +14,19 @@
         <label for="storeName">Store Name:</label>
         <input type="text" name="storeName" value="" width="100px">
 
-        <label for="minCust">Minimum Customers:</label>
+        <label for="minCust">Min. Customers:</label>
         <input type="number" name="minCust" value="">
 
-        <label for="maxCust">Maximum Customers:</label>
+        <label for="maxCust">Max. Customers:</label>
         <input type="number" name="maxCust" value="">
 
         <label for="avgCups">Average Cups Per Hour:</label>
         <input type="number" name="avgCups" value="">
 
-        <label for="avgPnds">Average Pounds Per Hour:</label>
+        <label for="avgPnds">Average lbs Per Hour:</label>
         <input type="number" name="avgPnds" value="">
 
-        <button id="calculate" type="submit">Calculate</button>
+        <button id="calculate" type="submit">Submit</button>
       </fieldset>
     </form>
     <script src="js/app.js" type="text/javascript"></script>

@@ -15,3 +15,6 @@ Campfire Coffee
 *Version 1.2
 - Added table data for each location broken into individual hours
 - Added form and event handler to add new location
+
+*Verion 1.3
+- Used Skeleton CSS boilerplate to add in CSS (credit to getskeleton.com)

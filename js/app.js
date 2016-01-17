@@ -41,7 +41,6 @@ var websiteSales= new Kiosk('Website Sales', 3, 6, 0, 6.7);
 
 //Create function to render data into table format
 function renderTable(location) {
-  //Create first row with location and each hour
   var tableEl = document.createElement('table'); //Create table element
   document.body.appendChild(tableEl);  //Append table element to DOM
   var trEl = document.createElement('tr'); //Create table row element
@@ -62,10 +61,10 @@ function renderTable(location) {
   location.populateArrays();
 
     var thEl = document.createElement('th');  //Create empty table heading
-    var newTr = document.createElement('tr');
-    tableEl.appendChild(newTr);
-    newTr.appendChild(thEl);  //Append table data to table row
-    thEl.textContent = '[Customers]';
+    var newTr = document.createElement('tr'); //Create table row element
+    tableEl.appendChild(newTr); //Append table row to table
+    newTr.appendChild(thEl);  //Append table head to table row
+    thEl.textContent = 'Customers'; //Give the table head content
 
     for(var i = 0; i < location.customerPerHrArray.length; i++) {
 
@@ -78,7 +77,7 @@ function renderTable(location) {
     var newTr = document.createElement('tr');
     tableEl.appendChild(newTr);
     newTr.appendChild(thEl);  //Append table data to table row
-    thEl.textContent = '[Cups Sold (lbs)]';
+    thEl.textContent = 'Cups Sold (lbs)';
 
     for(var i = 0; i < location.customerPerHrArray.length; i++) {  //Loop to create table headings for the hours
 
@@ -91,7 +90,7 @@ function renderTable(location) {
     var newTr = document.createElement('tr');
     tableEl.appendChild(newTr);
     newTr.appendChild(thEl);  //Append table data to table row
-    thEl.textContent = '[To-Go lbs]';
+    thEl.textContent = 'To-Go lbs';
 
     for(var i = 0; i < location.customerPerHrArray.length; i++) {  //Loop to create table headings for the hours
 
@@ -104,7 +103,7 @@ function renderTable(location) {
     var newTr = document.createElement('tr');
     tableEl.appendChild(newTr);
     newTr.appendChild(thEl);  //Append table data to table row
-    thEl.textContent = '[Total lbs]';
+    thEl.textContent = 'Total lbs';
 
     for(var i = 0; i < location.customerPerHrArray.length; i++) {  //Loop to create table headings for the hours
 
@@ -117,11 +116,11 @@ function renderTable(location) {
     var newTr = document.createElement('tr'); //Creates table row
     tableEl.appendChild(newTr);  //Appends table row to the table
     newTr.appendChild(thEl);  //Appends table heading to the table row
-    thEl.textContent = '[Daily Total lbs]:';
+    thEl.textContent = 'Daily Total lbs:';
 
-    var tdEl = document.createElement('td');
-    newTr.appendChild(tdEl);
-    tdEl.textContent = location.totalDailyLbs.toFixed(2);
+    var thEl = document.createElement('th');
+    newTr.appendChild(thEl);
+    thEl.textContent = location.totalDailyLbs.toFixed(2);
 
     var brEl = document.createElement('br');  //Create line break
     document.body.appendChild(brEl);
@@ -133,6 +132,7 @@ var allKiosks = [pikePlace, capitolHill, seaPubLib, sLakeUnion, seaTacAirport, w
     renderTable(allKiosks[i]);
   }
 
+//Event listener
 var newKiosk = document.getElementById('newKiosk');
 newKiosk.addEventListener('submit', addNewKiosk);
 
