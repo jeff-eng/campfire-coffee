@@ -1,5 +1,5 @@
 html {
-
+  background-image: url(img/campfire.jpg)
 }/*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
@@ -31,11 +31,11 @@ html {
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
-  position: relative;
+  position: ;
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box; }
 .column,
 .columns {
@@ -402,9 +402,9 @@ hr {
 /* Navigation
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 nav ul li{
-  display: inline-flex;
+  display: inline;
   padding: 15px;
-  position: relative;
+  float: right;
 }
 
 /* Media Queries
@@ -435,7 +435,7 @@ there.
 
 body {
   /*background-color: #607A31;*/
-  background-image: image(img/campfire.jpg);
+  background-image: url(img/campfire.jpg);
 }
 
 table, th, td {
@@ -445,4 +445,37 @@ table, th, td {
 .campfire-coffee {
   width: 150px;
   height: auto;
+}
+
+header {
+
+}
+
+aside {
+  float: right;
+  font-size: .75em;
+  position: relative;
+}
+
+.companyname {
+  position: relative;;
+}
+
+.head1, .content1 {
+  font-size: 20px;
+  text-align: center;
+  
+}
+
+.head2, .content2 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.head3, .content3 {
+
+}
+.head1, .head2, .head3 {
+  font-size: 1em;
+  font-weight: bolder;
 }
