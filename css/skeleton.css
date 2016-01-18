@@ -409,6 +409,10 @@ nav ul li{
   float: none;
 }
 
+.navbar {
+  background-color: black;
+}
+
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*
@@ -446,21 +450,20 @@ table, th, td {
 
 .campfire-coffee {
   width: 150px;
-  height: auto;
+  height: 100px;
+  border-radius: 60px;
+  border: none;
+
 }
 
 header {
-
+  position: relative;
 }
 
 aside {
   float: right;
   font-size: .75em;
   position: relative;
-}
-
-.companyname {
-  background-color: #607A31;
 }
 
 .head1, .content1 {
@@ -504,4 +507,25 @@ aside {
 .companyname {
   text-align: center;
   border-style: solid;
+  background-color: #607A31;
+  font-weight: bolder;
+}
+
+.banner campfire-coffee {
+  float: left;
+  position: relative;
+  margin-top: auto;
+}
+
+.banner .companyname {
+  position: relative;
+  margin: 0;
+}
+
+h1 .campfire-coffee {
+  padding-top: 12px;
+}
+
+.intro {
+  background-image: url(../img/campfire.jpg);
 }
