@@ -132,13 +132,12 @@ var allKiosks = [pikePlace, capitolHill, seaPubLib, sLakeUnion, seaTacAirport, w
     renderTable(allKiosks[i]);
   }
 
-//Event listener
-var newKiosk = document.getElementById('newKiosk');
-newKiosk.addEventListener('submit', addNewKiosk);
-
 function addNewKiosk(event) {
   console.log(event);
   event.preventDefault();
+//Event listener
+var newKiosk = document.getElementById('newKiosk');
+newKiosk.addEventListener('submit', addNewKiosk);
 
   var storeName = event.target.storeName.value;
   var minCust = event.target.minCust.value;

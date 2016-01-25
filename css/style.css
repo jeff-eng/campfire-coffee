@@ -1,0 +1,9 @@
+body {
+  background-color: #393B23;
+  font-family: sans-serif;
+  color: gray;
+}
+
+table, th, td {
+  border: 1px solid gray;
+}

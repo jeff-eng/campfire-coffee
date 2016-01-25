@@ -438,16 +438,6 @@ there.
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
 
-
-body {
-  /*background-color: #607A31;*/
-  /*background-image: url(img/campfire.jpg);*/
-}
-
-table, th, td {
-  border: 1px solid black;
-}
-
 .campfire-coffee {
   width: 150px;
   height: 100px;
@@ -457,12 +447,6 @@ table, th, td {
 }
 
 header {
-  position: relative;
-}
-
-aside {
-  float: right;
-  font-size: .75em;
   position: relative;
 }
 
@@ -524,8 +508,41 @@ aside {
 
 h1 .campfire-coffee {
   padding-top: 12px;
+  margin-bottom: 5px;
 }
 
 .intro {
   background-image: url(../img/campfire.jpg);
+}
+
+.location {
+  list-style: none;
+  color: #A7A9B3;
+  max-width: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.location-header {
+  color: #A7A9B3;
+}
+
+section > h4 {
+  color: #CA6B29;
+}
+
+.locations {
+  display: inline-flex;
+  font-size: .75em;
+  margin: auto;
+}
+
+.address {
+  margin: none;
+}
+
+.campfire {
+  width: 25%;
+  height: 25%;
+  border-radius: 10px;
 }
