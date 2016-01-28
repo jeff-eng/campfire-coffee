@@ -1,7 +1,6 @@
-html {
-  /*background-image: url(../img/campfire.jpg);*/
+body {
+  background-image: url(../img/campsite-tent-night.jpg);
   background-size: cover;
-  background-color: #393B23;
 }/*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
@@ -486,6 +485,7 @@ header {
   text-align:center;
   color: #607A31;
   font-size: 15px;
+  font-weight: bolder;
 }
 
 .companyname {
@@ -509,10 +509,6 @@ header {
 h1 .campfire-coffee {
   padding-top: 12px;
   margin-bottom: 5px;
-}
-
-.intro {
-  background-image: url(../img/campfire.jpg);
 }
 
 .location {
@@ -545,4 +541,30 @@ section > h4 {
   width: 25%;
   height: 25%;
   border-radius: 10px;
+}
+
+article {
+  opacity: 0.5;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.resourcecontainer {
+  max-width: 450px;
+}
+
+.content1, .content2, .content3, .resources {
+  font-weight: bold;
+  color: black;
+}
+
+.resources > li {
+  font-weight: bold;
+  color: black;
+}
+
+.locations {
+  opacity: 0.5;
+  background-color: #ffffff;
+  border-radius: 2px;
 }
