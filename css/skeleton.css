@@ -1,5 +1,6 @@
-html {
-
+body {
+  background-image: url(../img/campsite-tent-night.jpg);
+  background-size: cover;
 }/*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
@@ -31,11 +32,11 @@ html {
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
-  position: relative;
+  position: ;
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box; }
 .column,
 .columns {
@@ -130,7 +131,7 @@ body {
   /*font-family: 'Cutive', serif;*/
   /*font-family: 'Gloria Hallelujah', cursive;*/
   font-family: 'Architects Daughter', cursive;
-  background-image:image(img/campfire-coffee.jpg); }
+ }
 
 
 /* Typography
@@ -169,7 +170,6 @@ a {
 a:hover {
   color: #E8E8E8;
 }
-
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -402,9 +402,13 @@ hr {
 /* Navigation
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 nav ul li{
-  display: inline-flex;
+  display: inline;
   padding: 15px;
-  position: relative;
+  float: none;
+}
+
+.navbar {
+  background-color: black;
 }
 
 /* Media Queries
@@ -432,17 +436,158 @@ there.
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
 
-
-body {
-  /*background-color: #607A31;*/
-  background-image: image(img/campfire.jpg);
-}
-
-table, th, td {
-  border: 1px solid black;
-}
-
 .campfire-coffee {
   width: 150px;
-  height: auto;
+  height: 100px;
+  border-radius: 40%;
+  border: none;
+
+}
+
+header {
+  position: relative;
+}
+
+.head1, .content1 {
+  text-align: center;
+  color:
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.head2, .content2 {
+  text-align: center;
+  color:
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.head3, .content3 {
+  text-align: center;
+  color:
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.head1, .head2, .head3 {
+  font-size: 1em;
+  font-weight: bolder;
+  color: #CA6B29;
+}
+
+.content1, .content2, .content3 {
+    color: #A7A9B3;
+}
+
+.slogan {
+  text-align:center;
+  color: #607A31;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.companyname {
+  text-align: center;
+  border-style: solid;
+  background-color: #607A31;
+  font-weight: bolder;
+}
+
+.banner campfire-coffee {
+  float: left;
+  position: relative;
+  margin-top: auto;
+}
+
+.banner .companyname {
+  position: relative;
+  margin: -5;
+}
+
+h1 .campfire-coffee {
+  padding-top: 12px;
+  margin-bottom: 5px;
+}
+
+.location {
+  list-style: none;
+  color: black;
+  max-width: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.location-header {
+  color: #A7A9B3;
+}
+
+section > h4 {
+  color: #CA6B29;
+}
+
+.locations {
+  display: inline-flex;
+  font-size: 1em;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.address {
+  margin: none;
+}
+
+.campfire {
+  width: 25%;
+  height: 25%;
+  border-radius: 10px;
+}
+
+article {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+}
+
+.resourcecontainer {
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.content1, .content2, .content3, .resources {
+  font-weight: bold;
+  color: black;
+}
+
+.resources > li {
+  font-weight: bold;
+  color: black;
+}
+
+.location-container {
+  margin-top: 15px;
+  border-radius: 1px;
+}
+
+.campingresources {
+  margin-top: 15px;
+}
+
+.localevents {
+  background: rgba(255, 255, 255, 0.5);
+  max-width: 700px;
+  padding: 10px;
+}
+
+.resourcelink {
+  color: black;
+}
+
+.infocontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.localeventscontainer {
+  margin-top: 15px;
 }
